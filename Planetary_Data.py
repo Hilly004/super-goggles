@@ -1,10 +1,20 @@
 names = ['Mercury',
          'Venus',
          'Earth',
-         'Mars']
+         'Mars',
+         'Jupiter',
+         'Moon',
+         'Sun',
+         '2024YR4']#,
+         #'Uranus',
+         #'Neptune']
 
-masses = [1,
-          1,
-          1,
-          1,
+masses = [3.285e23,
+          4.867e24,
+          5.972e24,
+          6.39e23,
+          1.898e27,
+          7.348e22,
+          1.989e30,
+          1
           ]

@@ -41,5 +41,3 @@ def out(name):
             list1[r,j]=new_list[x[j]]
 
     return(list1)
-
-#print(len(out('/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/Mercury.txt')[0]))

@@ -4,21 +4,16 @@ import numpy as np
 
 fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/'
 
-loc = [f'{fol}Mercury.txt',
-       f'{fol}Venus.txt',
-       f'{fol}Earth.txt',
-       f'{fol}Mars.txt']
+def pos(name,t):
+    d0=[]
+    for i in range(1,4):
+        d0.append(datex.out(fol+name+'.txt')[i,t]) #d0 = name, time, x,y,z, vx,vy,vz
+    return(d0) 
 
-for name in pdat.names:
-    d0=[name]
-    for i in range(0,7):
-        d0.append(datex.out(fol+name+'.txt')[i,1]) #d0 = name, time, x,y,z, vx,vy,vz
-    
-def pos(t):
-    l = []
-    for name in pdat.names:
-        d0=[name]
-        for i in range(0,7):
-            d0.append(datex.out(fol+name+'.txt')[i,t]) #d0 = name, time, x,y,z, vx,vy,vz
-        l.append(d0)
-    return(l) #l = [ [name1, time, x,y,z, vx,vy,vz ], [name2, time, x,y,z, vx,vy,vz ], ... ]
+def vec(name,t):
+    d0=[]
+    for i in range(1,7):
+        d0.append(datex.out(fol+name+'.txt')[i,t]) #d0 = name, time, x,y,z, vx,vy,vz
+    return(d0) 
+
+#print(vec('2024YR4',0)[1:6])
