@@ -16,19 +16,24 @@ r = np.array(pos.vec('2024YR4',0)[1:6])
 #for i,t in enumerate(times):
     #posAst[i] = r[:3]
     #rk.rk4(r,t,dt)
-
+s = (-1.75e9,1.75e9)
+plt.figure(dpi=150)
 ax = plt.axes(projection='3d')
+
 plt.subplot().set_aspect('equal')
-ax.set_xlim3d(-1e9,1e9)
-ax.set_ylim3d(-1e9,1e9)
-ax.set_zlim3d(-1e9,1e9)
+ax.set_xlim3d(s)
+ax.set_ylim3d(s)
+ax.set_zlim3d(s)
+ax.set_xlabel('x (m)')
+ax.set_ylabel('y (m)')
+ax.set_zlabel('z (m)')
 #ax.set_xticklabels((-1,-0.5,0,0.5,1))
 #ax.set_yticklabels((-1,-0.5,0,0.5,1))
 #ax.set_zticklabels((-1,-0.5,0,0.5,1))
 for name in pdat.names:
     ax.plot(datex.out(fol+name+'.txt')[1],datex.out(fol+name+'.txt')[2],datex.out(fol+name+'.txt')[3], label = name)
-    ax.plot(datex.out(fol+name+'.txt')[1][-1],datex.out(fol+name+'.txt')[2][-1],datex.out(fol+name+'.txt')[3][-1],marker = 'x')
-    #plt.legend()
+    ax.plot(datex.out(fol+name+'.txt')[1][-1],datex.out(fol+name+'.txt')[2][-1],datex.out(fol+name+'.txt')[3][-1],marker = 'x', c ='black',ms = 5)
+    plt.legend()
 #plt.plot(posAst[:,0],posAst[:,1],posAst[:,2])
 
 plt.show()
