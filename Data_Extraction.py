@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/'
+
 def out(name):
     lines = []
     new_list=[]
@@ -9,8 +11,8 @@ def out(name):
     with open(name, 'rt') as f:
         for line in f:
             lines.append(line)
-    for i in range(0,len(lines)):
-        if lines[i].find('$$SOE')==-1:
+    for l in range(0,len(lines)):
+        if lines[l].find('$$SOE')==-1:
             n=n+1
         else:
             for k in range(n+1,len(lines)):
@@ -27,13 +29,13 @@ def out(name):
                 new_list.append(float(x[i]))
         elif my_list[i].find('sigmas')!=-1:
             y = my_list[i].split()
-            for i in range(1,7):
-                if y[i]=='n.a.':
+            for j in range(1,7):
+                if y[j]=='n.a.':
                     new_list.append(0)
                 else:
-                    new_list.append(float(y[i]))
+                    new_list.append(float(y[j]))
         else:
-            n=+1
+            n=n+1
     list1=np.zeros((13,int(len(new_list)/13)))      
     for r in range(13):
         x = np.arange(r,len(new_list),13)
@@ -41,3 +43,5 @@ def out(name):
             list1[r,j]=new_list[x[j]]
 
     return(list1)
+
+
