@@ -11,8 +11,32 @@ names = ['Sun',
          'Uranus',
          'Neptune',
          'Moon',
-         #'2024YR4'
+         '2024YR4'
          ]
+
+colours = ['orange',
+           '#88a0a8',
+           '#c79540',
+           '#0b3f9e',
+           '#b18842',
+           '#dbd2ab',
+           "#d5c166",
+           '#7bdbd3',
+           '#6560e0',
+           'gray',
+           'red']
+
+linewidths = [0.8,
+              0.8,
+              0.8,
+              0.8,
+              0.8,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1]
 
 masses = [1.989e30,
           3.285e23,
@@ -24,7 +48,7 @@ masses = [1.989e30,
           8.681e25,
           1.024e26,
           7.348e22,
-          #1
+          1
           ]
 
 col_names = ['Earth_Col',
@@ -33,13 +57,15 @@ col_names = ['Earth_Col',
              ]
 
 object_data = {}
-fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/'
+fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/dt=1day/'
 
-def load_body(name):
+def load_body(name): #dt=1day
     return datex.out(fol+name+'.txt')
 
 for name in names:
     object_data[name] = load_body(name)
+
+######
 
 col_data = {}
 fol2 = '/Users/finleyhill/Documents/University/Level 3/CP/Collision Data/'
@@ -49,3 +75,14 @@ def load_body_col(name):
 
 for name in col_names:
     col_data[name] = load_body_col(name)
+
+######
+
+object_data_2 = {}
+fol3 = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/dt=1hour/'
+
+def load_body_2(name):
+    return datex.out(fol3+name+'.txt')
+
+for name in names:
+    object_data_2[name]=load_body_2(name)
