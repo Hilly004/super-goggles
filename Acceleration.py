@@ -12,4 +12,10 @@ def accel(p,t):
         a = a + G*pdat.masses[j]*vec/d**3
     return(a)
 
-#print(accel([1e8,1e8,1e8],1))
+def accel2(p,t):
+    a = [0,0,0]
+    for j in range(len(pdat.names)-1):
+        vec = np.array(pos.positions2[j,t,1:4]) - np.array(p)
+        d = np.sqrt(vec[0]**2+vec[1]**2+vec[2]**2)
+        a = a + G*pdat.masses[j]*vec/d**3
+    return(a)

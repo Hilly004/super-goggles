@@ -2,7 +2,8 @@ import Planetary_Data as pdat
 import Data_Extraction as datex
 import numpy as np
 
-fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/'
+fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/dt=1day/'
+fol2 = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/dt=1hour/'
 
 def pos(name,t):
     d0=[]
@@ -24,12 +25,13 @@ def all(name,t):
 
 ######
 
-times = np.arange(0,4385)
+times = np.arange(0,len(datex.out(fol+'Earth.txt')[0]))
 positions = np.empty((len(pdat.names),len(times),13))
 
 for n,name in enumerate(pdat.names):
     data = pdat.object_data[name]
     positions[n,:,:] = data[0:13,times].T
+   
     
 #######
 
@@ -39,5 +41,17 @@ col_positions = np.empty((len(pdat.col_names),len(col_times),13))
 for n,name in enumerate(pdat.col_names):
     data = pdat.col_data[name]
     col_positions[n,:,:] = data[0:13,col_times].T
+   
 
-#print(positions[7,0,1:7])
+
+######
+
+times2 = np.arange(0,len(datex.out(fol2+'Earth.txt')[0]))
+positions2 = np.empty((len(pdat.names),len(times2),13))
+
+for n,name in enumerate(pdat.names):
+    data = pdat.object_data_2[name]
+    positions2[n,:,:] = data[0:13,times2].T
+    
+
+
