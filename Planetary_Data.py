@@ -51,10 +51,6 @@ masses = [1.989e30,
           1
           ]
 
-col_names = ['Earth_Col',
-             'Moon_Col',
-             '2024YR4_Col'
-             ]
 
 object_data = {}
 fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/dt=1day/'
@@ -67,22 +63,4 @@ for name in names:
 
 ######
 
-col_data = {}
-fol2 = '/Users/finleyhill/Documents/University/Level 3/CP/Collision Data/'
 
-def load_body_col(name):
-    return datex.out(fol2+name+'.txt')
-
-for name in col_names:
-    col_data[name] = load_body_col(name)
-
-######
-
-object_data_2 = {}
-fol3 = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/dt=1hour/'
-
-def load_body_2(name):
-    return datex.out(fol3+name+'.txt')
-
-for name in names:
-    object_data_2[name]=load_body_2(name)

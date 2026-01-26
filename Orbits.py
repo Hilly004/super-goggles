@@ -10,60 +10,32 @@ from mpl_toolkits import mplot3d
 
 fol = '/Users/finleyhill/Documents/University/Level 3/CP/Planetary Data/'
 
-######
-
-plt.figure(num=1,dpi=150)
-
-s = (-5e9,5e9)
-ax = plt.axes(projection='3d')
-plt.subplot().set_aspect('equal')
-ax.set_xlim3d(s)
-ax.set_ylim3d(s)
-ax.set_zlim3d(s)
-ax.set_xlabel('x (km)')
-ax.set_ylabel('y (km)')
-ax.set_zlabel('z (km)')
-for n in range(len(pdat.names)):
-    p = pos.positions[n,:,1:4]
-    ax.plot(p[:,0],p[:,1],p[:,2],linewidth=pdat.linewidths[n],color=pdat.colours[n])
-ax.plot(ast.posAst[:,0],ast.posAst[:,1],ast.posAst[:,2])
-
 #######
 
-plt.figure(num=2)
+plt.figure(num=1)
 
-s1=(-1e9,1e9)
 ax1 = plt.axes(projection='3d')
+
+s = (-9e11,9e11)
+ax1.set_xlim(s)
+ax1.set_ylim(s)
+ax1.set_zlim(s)
+
 plt.subplot().set_aspect('equal')
-ax1.set_xlim3d(s1)
-ax1.set_ylim3d(s1)
-ax1.set_zlim3d(s1)
-ax1.set_xlabel('x (m)')
-ax1.set_ylabel('y (m)')
-ax1.set_zlabel('z (m)')
+
 for n in range(len(pdat.names)-3):
-    posit = pos.positions[[0,1,2,3,4,5,9,10]]
+    posit = pos.positions[[0,1,2,3,4,5,9,10]] #picks only inner planets up to and including Jupiter to plot
     p = posit[n,:,1:4]
     ax1.plot(p[:,0],p[:,1],p[:,2],linewidth=pdat.linewidths[n],color=pdat.colours[n])
+
 ax1.plot(ast.posAst[:,0],ast.posAst[:,1],ast.posAst[:,2])
 
 ######
 
-plt.figure(num=3)
-
-s2=(-1e9,1e9)
-ax2 = plt.axes(projection='3d')
-plt.subplot().set_aspect('equal')
-ax2.set_xlim3d(s2)
-ax2.set_ylim3d(s2)
-ax2.set_zlim3d(s2)
-ax2.set_xlabel('x (m)')
-ax2.set_ylabel('y (m)')
-ax2.set_zlabel('z (m)')
-for n in range(len(pdat.names)-3):
-    position = pos.positions2[[0,1,2,3,4,5,9,10]]
-    p = position[n,:,1:4]
-    ax2.plot(p[:,0],p[:,1],p[:,2],linewidth=pdat.linewidths[n],color=pdat.colours[n])
-ax2.plot(ast.posAst2[:,0],ast.posAst2[:,1],ast.posAst2[:,2])
+#plt.figure(num=2)
+#r = np.sqrt(ast.posAst[:,0]**2+ast.posAst[:,1]**2+ast.posAst[:,2]**2)
+#plt.plot(pos.times,r)
+#plt.xlabel('time (hours)')
+#plt.ylabel('r(m)')
 plt.show()
 
